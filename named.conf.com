@@ -1,6 +1,6 @@
-zone "okd.local" {
+zone "okd.com" {
     type master;
-    file "/etc/named/zones/db.okd.local"; # zone file path
+    file "/etc/named/zones/db.okd.com"; # zone file path
 };
 
 zone "3.168.192.in-addr.arpa" {

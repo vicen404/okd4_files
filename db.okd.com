@@ -1,0 +1,38 @@
+$TTL    604800
+@       IN      SOA     okd4-services.okd.com. admin.okd.com. (
+                  1     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800     ; Negative Cache TTL
+)
+
+; name servers - NS records
+    IN      NS      okd4-services
+
+; name servers - A records
+okd4-services.okd.com.          IN      A       192.168.3.221
+
+; OpenShift Container Platform Cluster - A records
+okd4-bootstrap.lab.okd.com.        IN      A      192.168.3.222
+okd4-control-plane-1.lab.okd.com.        IN      A      192.168.3.223
+okd4-control-plane-2.lab.okd.com.         IN      A      192.168.3.224
+okd4-control-plane-3.lab.okd.com.         IN      A      192.168.3.225
+okd4-compute-1.lab.okd.com.        IN      A      192.168.3.226
+okd4-compute-2.lab.okd.com.        IN      A      192.168.3.227
+
+; OpenShift internal cluster IPs - A records
+api.lab.okd.com.    IN    A    192.168.3.221
+api-int.lab.okd.com.    IN    A    192.168.3.221
+*.apps.lab.okd.com.    IN    A    192.168.3.221
+etcd-0.lab.okd.com.    IN    A     192.168.3.223
+etcd-1.lab.okd.com.    IN    A     192.168.3.224
+etcd-2.lab.okd.com.    IN    A    192.168.3.225
+console-openshift-console.apps.lab.okd.com.     IN     A     192.168.3.221
+oauth-openshift.apps.lab.okd.com.     IN     A     192.168.3.221
+
+; OpenShift internal cluster IPs - SRV records
+_etcd-server-ssl._tcp.lab.okd.com.    86400     IN    SRV     0    10    2380    etcd-0.lab
+_etcd-server-ssl._tcp.lab.okd.com.    86400     IN    SRV     0    10    2380    etcd-1.lab
+_etcd-server-ssl._tcp.lab.okd.com.    86400     IN    SRV     0    10    2380    etcd-2.lab
+
